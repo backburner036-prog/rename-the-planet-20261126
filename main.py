@@ -8,6 +8,8 @@ no input.
 
 import os
 
+# Determinism note: same code, same output every run — no randomness,
+# no network, no clock, no external input.
 ENTRY = (
     "Rename Saturn 'Wedding Ring': it has flashed its band for four "
     "billion years and still will not commit to a single moon."
@@ -15,6 +17,8 @@ ENTRY = (
 
 
 def main() -> None:
+    # Entry limit note: the bounty requires one line under 200 characters;
+    # ENTRY is 120 characters, validated below before anything is written.
     if not 1 <= len(ENTRY) <= 200:
         raise ValueError(f"ENTRY must be 1-200 characters, got {len(ENTRY)}")
     if "\n" in ENTRY or "\r" in ENTRY:
